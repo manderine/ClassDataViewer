@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<StringTable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<_DataList>
+		<StringData>
+			<_ID>1000</_ID>
+			<_message>test</_message>
+		</StringData>
+		<StringData>
+			<_ID>1001</_ID>
+			<_message>test</_message>
+		</StringData>
+	</_DataList>
+</StringTable>
