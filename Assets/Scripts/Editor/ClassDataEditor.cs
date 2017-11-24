@@ -7,8 +7,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
-using System.Xml.Serialization;
-
 public class ClassDataEditor : EditorWindow {
     Dictionary<string, object> _TableList = new Dictionary<string, object>();
 
@@ -221,6 +219,25 @@ public class ClassDataEditor : EditorWindow {
 
         FieldInfo [] fis = data.GetType().GetFields();
 		if( fis == null ) {
+			return null;
+		}
+
+		int count = 0;
+		for( int i=0; i<fis.Length; i++ ) {
+			FieldInfo fi = fis[i];
+            object temp = fi.GetValue( data );
+            if( temp == null ) {
+                continue;
+            }
+
+			if( fi.Attributes != FieldAttributes.Public ) {
+				continue;
+			}
+
+			count++;
+        }
+
+		if( count > 1 ) {
 			return null;
 		}
 
